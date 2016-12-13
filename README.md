@@ -31,3 +31,14 @@ If you want to overwrite a config file:
       -v <PATH_TO_PICUTRES_DIR>:/opt/Pictures \
       -v <PATH_TO_CONFIG_DIR>/minidlna.conf:/etc/minidlna.conf \
       geekduck/minidlna
+
+### Problems when build from armhf-alpine
+
+##### 1. Can't find the package: minidlna
+
+  Check [Build Log](http://build.alpinelinux.org/buildlogs/build-edge-armhf/community/minidlna/minidlna-1.1.5-r3.log)
+
+##### 2. Entrypoint should be changed
+
+  Previous entrypoint is `/usr/sbin/minidlnad -d`
+  After make install, the entrypoint should be changed to `/usr/local/sbin/minidlnad -d`
